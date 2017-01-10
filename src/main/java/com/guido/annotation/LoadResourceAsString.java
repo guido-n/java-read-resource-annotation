@@ -14,6 +14,6 @@ import java.lang.annotation.Target;
 @Documented
 public @interface LoadResourceAsString{
 
-    String absoluteResourcePath();
+    String value();
 
 }
