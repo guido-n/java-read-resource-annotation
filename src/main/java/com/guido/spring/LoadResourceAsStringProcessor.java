@@ -76,7 +76,7 @@ public class LoadResourceAsStringProcessor implements BeanPostProcessor {
                     if (annotation != null) {
 
                         log.debug(
-                                "postProcessAfterInitialization(): ({}) {}: \"{}\"",
+                                "postProcessAfterInitialization(): ({}) {}: load from \"{}\"",
                                 field.getClass().getCanonicalName(),
                                 field.getName(),
                                 annotation.value()

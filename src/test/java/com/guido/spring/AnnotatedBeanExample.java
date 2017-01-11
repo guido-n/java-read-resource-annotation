@@ -8,7 +8,10 @@ import org.springframework.stereotype.Component;
  * Created by guido on 11/01/17.
  */
 @Component
-public class AnnotationBeanExample {
+public class AnnotatedBeanExample {
+
+    @LoadResourceAsString("/text/resource.txt")
+    private static String STATIC_TEXT;
 
     @LoadResourceAsString("/text/resource.txt")
     private String text;
@@ -23,4 +26,9 @@ public class AnnotationBeanExample {
     public String getBadText() {
         return badText;
     }
+
+    public static String getStaticText() {
+        return STATIC_TEXT;
+    }
 }
+
