@@ -33,7 +33,10 @@ public class LoadResourceAsStringProcessor implements BeanPostProcessor {
     private static String loadResourceAsString(String resourcePath, Class<?> clazz) {
         String resourceContent = "";
         try {
-            resourceContent = new String(Files.readAllBytes(Paths.get(clazz.getResource(resourcePath).toURI())), StandardCharsets.UTF_8);
+            resourceContent = new String(
+                    Files.readAllBytes( Paths.get(clazz.getResource(resourcePath).toURI()) ),
+                    StandardCharsets.UTF_8
+            );
         } catch (Exception e) {
             log.error("loadStringFromResource(): couldn't load resource \"{}\"", resourcePath);
 
