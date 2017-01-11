@@ -2,12 +2,11 @@ package com.guido;
 
 import com.guido.annotation.LoadResourceAsString;
 
+import com.guido.spring.AnnotationBeanExample;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import org.slf4j.LoggerFactory;
-import org.slf4j.Logger;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -21,7 +20,8 @@ import static org.junit.Assert.assertThat;
 @ContextConfiguration("/spring/test-context.xml")
 public class AnnotationTest {
 
-    private static final Logger log = LoggerFactory.getLogger(AnnotationTest.class);
+    @Autowired
+    private AnnotationBeanExample annotationBeanExample;
 
     @LoadResourceAsString("/text/resource.txt")
     private static String STATIC_TEXT;
@@ -38,6 +38,14 @@ public class AnnotationTest {
         assertThat(STATIC_TEXT, equalTo("RESOURCE CONTENT"));
         assertThat(text, equalTo("RESOURCE CONTENT"));
         assertThat(badText, equalTo(""));
+
+    }
+
+    @Test
+    public void annotationBeanTest() {
+
+        assertThat(annotationBeanExample.getText(), equalTo("RESOURCE CONTENT"));
+        assertThat(annotationBeanExample.getBadText(), equalTo(""));
 
     }
 }
