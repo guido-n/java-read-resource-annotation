@@ -24,7 +24,7 @@ public class AnnotationTest {
     private static final Logger log = LoggerFactory.getLogger(AnnotationTest.class);
 
     @LoadResourceAsString("/text/resource.txt")
-    private static String staticText;
+    private static String STATIC_TEXT;
 
     @LoadResourceAsString("/text/resource.txt")
     private String text;
@@ -35,7 +35,7 @@ public class AnnotationTest {
     @Test
     public void annotationTest() {
 
-        assertThat(staticText, equalTo("RESOURCE CONTENT"));
+        assertThat(STATIC_TEXT, equalTo("RESOURCE CONTENT"));
         assertThat(text, equalTo("RESOURCE CONTENT"));
         assertThat(badText, equalTo(""));
 
