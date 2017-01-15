@@ -4,9 +4,6 @@ import com.guido.annotation.LoadResourceAsString;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
-/**
- * Created by guido on 11/01/17.
- */
 @Component
 public class AnnotatedBeanExample {
 
