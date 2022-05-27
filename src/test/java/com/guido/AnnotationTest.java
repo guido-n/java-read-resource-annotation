@@ -16,7 +16,7 @@ import static org.junit.Assert.assertThat;
  * AnnotationTest
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("/spring/test-context.xml")
+@ContextConfiguration(classes = AnnotationTestConfiguration.class)
 public class AnnotationTest {
 
     @Autowired
@@ -25,6 +25,7 @@ public class AnnotationTest {
     @Test
     public void annotationBeanTest() {
 
+        assertThat(AnnotatedBeanExample.getStaticText(), equalTo("RESOURCE CONTENT"));
         assertThat(bean.getStaticText(), equalTo("RESOURCE CONTENT"));
         assertThat(bean.getText(), equalTo("RESOURCE CONTENT"));
         assertThat(bean.getBadText(), equalTo(""));
