@@ -1,6 +1,6 @@
 package com.guido.annotation.spring;
 
-import com.guido.annotation.LoadResourceAsString;
+import com.guido.annotation.ResourceContentAsString;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -38,7 +38,7 @@ public class LoadResourceAsStringProcessor implements BeanPostProcessor {
                     StandardCharsets.UTF_8
             );
         } catch (Exception e) {
-            log.error("loadStringFromResource(): couldn't load resource \"{}\"", resourcePath);
+            log.error("loadResourceAsString(): couldn't load resource \"{}\"", resourcePath);
 
             // we could throw an unchecked exception here and make the loading to break when a resource is not found
             // throw new RuntimeException(String.format("Couldn't load resource: %s", resourcePath), e);
@@ -71,14 +71,14 @@ public class LoadResourceAsStringProcessor implements BeanPostProcessor {
         ReflectionUtils.doWithFields(
                 bean.getClass(),
                 (field) -> {
-                    LoadResourceAsString annotation = field.getAnnotation(LoadResourceAsString.class);
+                    ResourceContentAsString annotation = field.getAnnotation(ResourceContentAsString.class);
                     if (annotation != null) {
 
                         log.debug(
-                                "postProcessAfterInitialization(): loading [{}.{}] with [{}]",
+                                "postProcessAfterInitialization(): loading [{}] into [{}.{}]",
+                                annotation.value(),
                                 field.getDeclaringClass().getCanonicalName(),
-                                field.getName(),
-                                annotation.value()
+                                field.getName()
                         );
 
                         field.setAccessible(true);

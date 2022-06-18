@@ -1,12 +1,12 @@
 package com.guido.annotation.test;
 
-import com.guido.annotation.EnableLoadResourceAsString;
+import com.guido.annotation.EnableResourceContentAsStringAnnotation;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@EnableLoadResourceAsString
+@EnableResourceContentAsStringAnnotation
 @ComponentScan(basePackages = "com.guido.annotation.test.spring")
 public class AnnotationTestConfiguration {
 }

@@ -10,6 +10,6 @@ import java.lang.annotation.*;
 //@ComponentScan(basePackages = "com.guido.annotation.spring") DOESN'T WORK
 @Import(com.guido.annotation.spring.LoadResourceAsStringProcessor.class)
 @Documented
-public @interface EnableLoadResourceAsString {
+public @interface EnableResourceContentAsStringAnnotation {
 
 }
