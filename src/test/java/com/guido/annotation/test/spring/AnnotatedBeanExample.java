@@ -1,19 +1,18 @@
-package com.guido.spring;
+package com.guido.annotation.test.spring;
 
 import com.guido.annotation.LoadResourceAsString;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 @Component
 public class AnnotatedBeanExample {
 
-    @LoadResourceAsString("/text/resource.txt")
+    @LoadResourceAsString("/com/guido/annotation/test/resource.txt")
     private static String STATIC_TEXT;
 
-    @LoadResourceAsString("/text/resource.txt")
+    @LoadResourceAsString("/com/guido/annotation/test/resource.txt")
     private String text;
 
-    @LoadResourceAsString("/text/non-existent.txt")
+    @LoadResourceAsString("non-existent.txt")
     private String badText;
 
     public String getText() {

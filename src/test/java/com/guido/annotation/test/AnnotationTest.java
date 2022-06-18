@@ -1,6 +1,6 @@
-package com.guido;
+package com.guido.annotation.test;
 
-import com.guido.spring.AnnotatedBeanExample;
+import com.guido.annotation.test.spring.AnnotatedBeanExample;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import static org.hamcrest.Matchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 /**
  * AnnotationTest
