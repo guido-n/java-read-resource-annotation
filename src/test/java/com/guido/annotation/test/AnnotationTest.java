@@ -2,12 +2,12 @@ package com.guido.annotation.test;
 
 import com.guido.annotation.test.spring.AnnotatedBeanExample;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -15,7 +15,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 /**
  * AnnotationTest
  */
-@RunWith(SpringJUnit4ClassRunner.class)
+@ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = AnnotationTestConfiguration.class)
 public class AnnotationTest {
 
@@ -26,9 +26,9 @@ public class AnnotationTest {
     public void annotationBeanTest() {
 
         assertThat(AnnotatedBeanExample.getStaticText(), equalTo("RESOURCE CONTENT"));
-        assertThat(bean.getStaticText(), equalTo("RESOURCE CONTENT"));
-        assertThat(bean.getText(), equalTo("RESOURCE CONTENT"));
-        assertThat(bean.getBadText(), equalTo(""));
+        assertThat(bean.getStaticText(),                 equalTo("RESOURCE CONTENT"));
+        assertThat(bean.getText(),                       equalTo("RESOURCE CONTENT"));
+        assertThat(bean.getBadText(),                    equalTo(""));
 
     }
 }

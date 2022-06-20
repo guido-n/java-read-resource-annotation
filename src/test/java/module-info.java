@@ -7,12 +7,15 @@ module spring.guido.annotation.readresource.test {
     requires spring.test;
     requires spring.beans;
 
-    requires junit;
-    requires hamcrest.core;
+    requires org.junit.jupiter;
+
+    requires org.hamcrest;
+
     requires org.apache.logging.log4j;
 
     requires spring.guido.annotation.readresource;
 
     opens com.guido.annotation.test;
     opens com.guido.annotation.test.spring;
+
 }

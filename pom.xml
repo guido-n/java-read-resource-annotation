@@ -14,9 +14,10 @@
 
         <maven.compiler.release>18</maven.compiler.release>
         <maven.compiler.plugin.version>3.10.1</maven.compiler.plugin.version>
+        <maven.surefire.plugin.version>3.0.0-M7</maven.surefire.plugin.version>
 
         <spring.version>5.3.21</spring.version>
-        <junit.version>4.13.2</junit.version>
+        <junit.jupiter.version>5.9.0-M1</junit.jupiter.version>
         <hamcrest.version>2.2</hamcrest.version>
         <log4j.version>2.17.2</log4j.version>
     </properties>
@@ -29,6 +30,10 @@
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>${maven.compiler.plugin.version}</version>
                 </plugin>
+                <plugin>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${maven.surefire.plugin.version}</version>
+                </plugin>
             </plugins>
         </pluginManagement>
     </build>
@@ -36,9 +41,9 @@
     <dependencies>
 
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.jupiter.version}</version>
             <scope>test</scope>
         </dependency>
 
