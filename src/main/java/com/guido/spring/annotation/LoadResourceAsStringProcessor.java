@@ -1,13 +1,10 @@
-package com.guido.annotation.spring;
-
-import com.guido.annotation.ResourceContentAsString;
+package com.guido.spring.annotation;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
-import org.springframework.stereotype.Component;
 import org.springframework.util.ReflectionUtils;
 
 import java.nio.charset.StandardCharsets;
@@ -17,10 +14,9 @@ import java.nio.file.Paths;
 /**
  * LoadResourceAsStringProcessor
  */
-@Component
 public class LoadResourceAsStringProcessor implements BeanPostProcessor {
 
-    private static final Logger log = LogManager.getLogger(LoadResourceAsStringProcessor.class);
+    private static final Logger LOG = LogManager.getLogger(LoadResourceAsStringProcessor.class);
 
     /**
      * Load a resource as a String
@@ -38,7 +34,7 @@ public class LoadResourceAsStringProcessor implements BeanPostProcessor {
                     StandardCharsets.UTF_8
             );
         } catch (Exception e) {
-            log.error("loadResourceAsString(): couldn't load resource \"{}\"", resourcePath);
+            LOG.error("loadResourceAsString(): couldn't load resource \"{}\"", resourcePath);
 
             // we could throw an unchecked exception here and make the loading to break when a resource is not found
             // throw new RuntimeException(String.format("Couldn't load resource: %s", resourcePath), e);
@@ -74,7 +70,7 @@ public class LoadResourceAsStringProcessor implements BeanPostProcessor {
                     ResourceContentAsString annotation = field.getAnnotation(ResourceContentAsString.class);
                     if (annotation != null) {
 
-                        log.debug(
+                        LOG.debug(
                                 "postProcessAfterInitialization(): loading [{}] into [{}.{}]",
                                 annotation.value(),
                                 field.getDeclaringClass().getCanonicalName(),

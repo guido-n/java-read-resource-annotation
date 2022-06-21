@@ -1,7 +1,6 @@
-module spring.guido.annotation.readresource {
+module com.guido.spring.annotation {
 
-    exports com.guido.annotation;
-    exports com.guido.annotation.spring;
+    exports com.guido.spring.annotation;
 
     requires spring.beans;
     requires spring.context;
